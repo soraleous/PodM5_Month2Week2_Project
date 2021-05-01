@@ -1,6 +1,6 @@
 * {
     /* border: 1px solid red; */
-    margin: 0;
+    /* margin: 0; */
     font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -8,20 +8,24 @@ body {
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(14,9,121,1) 1%, rgba(0,212,255,1) 98%);
     flex-direction: column;
-    width: 80vw;
-    margin: auto;
+    /* width: 80vw; */
+    /*margin: auto;*/
 }
+
 .header h1 {
     text-align: center;
     margin: 10px auto;
     font-size: 3em;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    color: white;
 }
-.container {
+
+.customcontainer {
     display: flex;
     flex-direction: column;
-    height: 50vh;
+    /*height: 50vh; (Theo Edit) */
     width: 30vmax;
-    background-color:#ffffff;
+    background-color: #ffffff;
     margin: 5vh auto auto auto;
     padding: 0;
     border-radius: 20px;
@@ -35,74 +39,76 @@ body {
 .currency {
     flex-wrap: wrap;
 }
-.currency p {
-    text-align: left;
-    font-size: 1.5rem;
-    font-weight: 900;
-    padding-left: 20px;
-    border-bottom: 2px solid black;
-    cursor: context-menu;
-}
 
-.currency select {
-    background-color:transparent;
-    /* width : 80px; */
-    height: 32px;
-    border: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-}
+    .currency p {
+        text-align: left;
+        font-size: 1.5rem;
+        font-weight: 900;
+        /*padding-left: 20px;*/
+        border-bottom: 2px solid black;
+        cursor: context-menu;
+    }
 
-.currency input {
-    background-color: transparent;
-    color: black;
-    height: 50px;
-    border: none;
-    margin:0;
-    font-size: 1.8rem;
-    font-weight: 500;
-    border-bottom: 2px solid black;
-}
-.currency select option {
-    background-color: white;
-    font-size: 1rem;
-    
-}
+    .currency select {
+        background-color: transparent;
+        /* width : 80px; */
+        height: 32px;
+        border: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .currency input {
+        background-color: transparent;
+        color: black;
+        height: 50px;
+        border: none;
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: 500;
+        border-bottom: 2px solid black;
+    }
+
+    .currency select option {
+        background-color: white;
+        font-size: 1rem;
+    }
 
 .inputBox {
     width: 10vmax;
 }
 
-button#exchange  {
+button#exchange {
     width: 80px;
     height: 80px;
     margin: 20px 0 10px 0;
-    border:0;
-    padding:0;
+    border: 0;
+    padding: 0;
     background-color: transparent;
-    color:black;
+    color: black;
     font-size: 2.5rem;
     text-align: center;
     cursor: pointer;
 }
 
-button#exchange:hover {
-    color:white;
-    background-color: #1c31f3;
-    border: none;
-    border-radius: 50%;
-}
+    button#exchange:hover {
+        color: white;
+        background-color: #1c31f3;
+        border: none;
+        border-radius: 50%;
+    }
 
+/* Reduced Margin Height here (Theo Edit) */
 .result {
-    margin: 15vh 0 0 0;
+    margin: 5vh 0 0 0;
     display: flex;
     flex-direction: column;
-	align-items: center;
-	justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
-.rate {   
+.rate {
     padding: 10px 10px;
     font-size: 1.5em;
     text-align: center;
@@ -112,5 +118,5 @@ button#exchange:hover {
 
 
 select:focus, input:focus, button:focus {
-	outline: 0;
+    outline: 0;
 }
