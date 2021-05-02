@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Lora', serif;
-}
-
 .customcontainer {
     height: 100vh;
     width: 100vw;
