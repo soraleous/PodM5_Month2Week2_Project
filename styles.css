@@ -1,0 +1,10 @@
+/* For Blurring Images in Home Page https://www.w3schools.com/howto/howto_css_image_effects.asp*/
+.blur {
+    -webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
+    filter: blur(2px);
+}
+
+/* Text Shadow for Image Captions in Home Page */
+h1 {
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
