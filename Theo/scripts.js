@@ -1,16 +1,17 @@
 // Code Adapted from https://www.studytonight.com/post/how-to-build-a-weather-app-using-javascript-for-complete-beginners
 
-// OpenWeatherMap API
+// OpenWeatherMap API https://openweathermap.org/api
 const api = 'a7b9bfe5d44e18451e33b062ec076f9a';
 
 // DOM elements from index.html
 const iconImg = document.getElementById('weather-icon');
 const loc = document.querySelector('#location');
-const tempC = document.querySelector('.c');
-const tempF = document.querySelector('.f');
-const desc = document.querySelector('.desc');
-const sunriseDOM = document.querySelector('.sunrise');
-const sunsetDOM = document.querySelector('.sunset');
+const tempC = document.querySelector('#c');
+const tempF = document.querySelector('#f');
+const desc = document.querySelector('#desc');
+const sunriseDOM = document.querySelector('#sunrise');
+const sunsetDOM = document.querySelector('#sunset');
+const lastUpdatedDOM = document.querySelector('#lastUpdated');
 
 
 // Event Listener fired when page loads
@@ -19,12 +20,11 @@ window.addEventListener('load', () => {
     let lat;
     // Access Geolocation of the user
     if (navigator.geolocation) {
-        console.log(navigator.geolocation);
         navigator.geolocation.getCurrentPosition((position) => {
             long = position.coords.longitude;
             lat = position.coords.latitude;
-            console.log(long);
-            console.log(lat);
+            console.log('User Longitude is: ' + long);
+            console.log('User Latitude is: ' + lat);
             // Fetch data from API then convert response to JSON
             const base = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${api}&units=metric`;
             console.log(base);
@@ -36,6 +36,7 @@ window.addEventListener('load', () => {
                     const place = data.name;
                     const { description, icon } = data.weather[0];
                     const { sunrise, sunset } = data.sys;
+                    const lastUpdate = data.dt;
                     // Icon URL here
                     const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
                     // Fahrenheit added for future usage
@@ -43,6 +44,9 @@ window.addEventListener('load', () => {
                     // Convert Epoch(Unix) Time to GMT
                     const sunriseGMT = new Date(sunrise * 1000);
                     const sunsetGMT = new Date(sunset * 1000);
+                    const lastUpdateGMT = new Date(lastUpdate * 1000);
+                    // To change Date format https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+                    const format1 = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
 
 
                     // Interact with DOM elements to show retrieved data
@@ -51,8 +55,9 @@ window.addEventListener('load', () => {
                     desc.textContent = `${description}`;
                     tempC.textContent = `${temp.toFixed(2)}` + '\u00B0' + 'C';
                     tempF.textContent = `${fahrenheit.toFixed(2)}` + '\u00B0' + 'F';
-                    sunriseDOM.textContent = `${sunriseGMT.toLocaleDateString()}, ${sunriseGMT.toLocaleTimeString()}`;
-                    sunsetDOM.textContent = `${sunsetGMT.toLocaleDateString()}, ${sunsetGMT.toLocaleTimeString()}`;
+                    sunriseDOM.textContent = `${sunriseGMT.toLocaleDateString(undefined, format1)}, ${sunriseGMT.toLocaleTimeString()}`;
+                    sunsetDOM.textContent = `${sunsetGMT.toLocaleDateString(undefined, format1)}, ${sunsetGMT.toLocaleTimeString()}`;
+                    lastUpdatedDOM.textContent = `${lastUpdateGMT.toLocaleDateString(undefined, format1)}, ${lastUpdateGMT.toLocaleTimeString()}`
                 });
         });
     }
