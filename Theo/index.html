@@ -38,41 +38,43 @@
     </header>
     <!-- Navigation Bar ends here -->
     <!-- Main Content starts here -->
-    <div class="container-sm">
-        <!-- Start of First Row for Current Weather Tracking -->
-        <!-- Code Adapted from https://www.studytonight.com/post/how-to-build-a-weather-app-using-javascript-for-complete-beginners -->
-        <div class="row justify-content-center">
-            <div class="col-sm-10 pt-3">
-                <div class="card text-dark mb-3">
-                    <div class="card-header text-center display-6">
-                        Current Weather
+    <!-- Start of First Row for Current Weather Tracking -->
+    <!-- Code Adapted from https://www.studytonight.com/post/how-to-build-a-weather-app-using-javascript-for-complete-beginners -->
+    <div class="row justify-content-center">
+        <div class="col pt-3">
+            <div class="card text-dark mb-3">
+                <div class="card-header text-center display-6">
+                    Current Weather
+                </div>
+                <div class="card-body customBackground1 text-center">
+                    <div class="weather">
+                        <img src="" alt="" srcset="" id="weather-icon" />
+                        <div id="desc"></div>
                     </div>
-                    <div class="card-body customBackground1 text-center">
-                        <div class="weather">
-                            <img src="" alt="" srcset="" id="weather-icon" />
-                            <div id="desc"></div>
-                        </div>
-                        <div id="location" class="pt-3 pb-3">Allow Location to Fetch Weather</div>
-                        <div class="temps pt-1 pb-1">
-                            <div id="c">Error</div>
-                            <div id="circle"></div>
-                            <div id="f">Error</div>
-                        </div>
-                        <div class="info lead pb-4 pt-2">
-                            <h4>Sunrise: <span id="sunrise">No Information Available</span></h4>
-                            <h4>Sunset: <span id="sunset">No Information Available</span></h4>
-                        </div>
+                    <div id="location" class="pt-3 pb-3">Allow Location to Fetch Weather</div>
+                    <div class="temps pt-1 pb-1">
+                        <div id="c">Error</div>
+                        <div id="circle"></div>
+                        <div id="f">Error</div>
                     </div>
-                    <div class="card-footer text-center">
-                        <small class="text-muted">Last Updated: <span id="lastUpdated">No Information Available</span></small>
+                    <div class="info lead pb-4 pt-2">
+                        <h4>Sunrise: <span id="sunrise">No Information Available</span></h4>
+                        <h4>Sunset: <span id="sunset">No Information Available</span></h4>
                     </div>
+                </div>
+                <div class="card-footer text-center">
+                    <small class="text-muted">Last Updated: <span id="lastUpdated">No Information Available</span></small>
                 </div>
             </div>
         </div>
-        <!-- End of First Row for Current Weather Tracking -->
     </div>
-    <!-- Main Content Ends here -->
+    <!-- End of First Row for Current Weather Tracking -->
+    <!-- Start of Second Row for Forecast Weather Tracking -->
+    <div id="forecast">
 
+    </div>
+    <!-- End of Second Row for Forecast Weather Tracking -->
+    <!-- Main Content Ends here -->
     <!-- Load custom script for weather checking -->
     <script src="scripts.js"></script>
 
