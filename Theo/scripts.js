@@ -27,6 +27,8 @@ window.addEventListener('load', () => {
             console.log('User Latitude is: ' + lat);
             // Call populateCurrentWeather 
             populateCurrentWeather(long, lat);
+            // Call populateForecastWeather
+            populateForecastWeather(long, lat);
         });
     }
 });
@@ -71,16 +73,16 @@ function populateCurrentWeather(long, lat) {
 
 // Function that contains the method to populate the 'Forecast Weather' Card
 function populateForecastWeather(long, lat) {
-    // Modify amount of days to return here
-    const days = 7;
+    // Using OpenWeather's 'One Call API' (Free users have to use this for forecast weather data) https://openweathermap.org/api/one-call-api#how
     // Fetch data from the OpenWeatherMap Daily Forecast Weather API then convert response to JSON (JSON is default from this API)
     const base =
-        `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${long}&cnt=${days}&appid=${api}`;
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={current,minutely,hourly,alerts}&appid=${api}`;
     console.log(base);
     fetch(base).then((Response) => {
         return Response.json();
     })
         .then((data) => {
-            // TODO: Gather the relevant data and then assign it to the DOM elements
+            console.log(data);
+            // TODO: Loop thru the data and create the cards accordingly.
         });
 }
